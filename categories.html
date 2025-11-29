@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Категории</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body, html {
+            height: 100%; /* Устанавливаем высоту для html и body */
+            margin: 0;
+        }
+        .d-flex.vh-100 {
+            height: 100vh; /* Высоту устанавливаем в процентах от высоты экрана */
+        }
+        .col-2 {
+            background-color: #343A40; /* Темный фон для наглядности */
+            color: white; /* Цвет текста белый */
+        }
+    </style>
+</head>
+<body>
+    <div class="row d-flex vh-100">
+        <div class="col-2 p-3 mb-2 text-center text-light bg-dark rounded-4 d-flex flex-column">
+            <h3>Меню</h3><br>
+            <button type="button" class="btn btn-light m-2 w-100">Главная</button><br>
+            <button type="button" class="btn btn-light m-2 w-100">Категории</button><br>
+            <button type="button" class="btn btn-light m-2 w-100">Заказы</button><br>
+            <button type="button" class="btn btn-light m-2 w-100">Контакты</button><br>
+            <div class="row position-absolute bottom-0 start-0 mb-3 ms-3">
+                <div class="accordion w-100" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item w-100">
+                        <h2 class="accordion-header w-100">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                Пользователь
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <code>
+                                    <button type="button" class="btn btn-light ms-0 w-100">Профиль</button><br>
+                                    <button type="button" class="btn btn-light ms-0 w-100">Выход</button><br>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <h1 class="text-center">Категории</h1>
+            <div class="row">
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Товар 1</h5>
+                            <p class="card-text text-center">
+                                <strong>100$</strong><br>
+                                Описание товара 1</p>
+                            <a href="#" class="btn btn-primary w-100">Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Товар 2</h5>
+                            <p class="card-text">
+                                <strong>100$</strong><br>
+                                Описание товара 2</p>
+                            <a href="#" class="btn btn-primary w-100">Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Товар 3</h5>
+                            <p class="card-text text-center">
+                                <strong>100$</strong><br>
+                                Описание товара 3</p>
+                            <a href="#" class="btn btn-primary w-100">Купить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
