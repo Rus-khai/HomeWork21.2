@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>main page</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <title>Контакты</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <style>
         body, html {
             height: 100%; /* Устанавливаем высоту для html и body */
@@ -50,41 +50,30 @@
             </div>
         </div>
         <div class="col-8">
-            <h1 class="text-center">Главная</h1>
-            <h6 class="text-center">Вы находитесь на странице, предназначенной для продажи товаров</h6>
+            <h1 class="text-center">Контакты</h1>
             <div class="row">
-                <div class="col-4 text-center">
-                    <div class="card">
+                <div class="col-4 text-center mt-5">
+                    <div class="card text-bg-secondary">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Товар 1</h5>
-                            <p class="card-text text-center">
-                                <strong>100$</strong><br>
-                                Описание товара 1</p>
-                            <a href="#" class="btn btn-primary w-100">Купить</a>
+                            <form>
+                                <h2>Оставьте заявку</h2>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Имя">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+
+                                <div class="mb-3">
+                                    <textarea class="form-control" placeholder="Сообщение" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Отправить</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Товар 2</h5>
-                            <p class="card-text">
-                                <strong>100$</strong><br>
-                                Описание товара 2</p>
-                            <a href="#" class="btn btn-primary w-100">Купить</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Товар 3</h5>
-                            <p class="card-text text-center">
-                                <strong>100$</strong><br>
-                                Описание товара 3</p>
-                            <a href="#" class="btn btn-primary w-100">Купить</a>
-                        </div>
-                    </div>
+                <div class="col-4 text-center mt-5">
+                    <h1 class="text-center">Наши контакты</h1>
                 </div>
             </div>
         </div>
