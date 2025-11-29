@@ -1,37 +1,41 @@
 # Импорт встроенной библиотеки для работы веб-сервера
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from pathlib import Path
+BASE_DIR = Path.cwd()
 
 # Для начала определим настройки запуска
 hostName = "localhost" # Адрес для доступа по сети
 serverPort = 8080 # Порт для доступа по сети
-PATH_HTML = 'categories.html'
+PATH_HTML = 'contacts.html'
+
+
+
+
+
 class MyServer(BaseHTTPRequestHandler):
-    """
-        Специальный класс, который отвечает за
-        обработку входящих запросов от клиентов
-    """
-
     def do_GET(self):
-        """
-        Метод для обработки входящих GET-запросов
-        """
-        self.send_response(200)  # Отправка кода ответа
-        self.send_header("Content-type", "text/html")  # Отправка типа данных, который будет передаваться
-        self.end_headers()  # Завершение формирования заголовков ответа
-        with open(PATH_HTML, 'r', encoding='utf-8') as file:
-            html_content = file.read()
-        self.wfile.write(bytes(html_content, "utf-8"))  # Тело ответа
+        if self.path == '/':
+            html_file = BASE_DIR / 'contacts.html'
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self._write_file(html_file)
+            return
 
-        if self.path.startswith('/css'):
-            file_path = self.path[1:]# Убираем ведущий слэш
-            try:
+        if self.path.startswith('/css/'):
+            css_file = BASE_DIR.joinpath(*self.path.split('/'))
+            if css_file.exists():
                 self.send_response(200)
-                self.send_header('Content-type', 'text/html')
+                self.send_header('Content-type', 'text/css')
                 self.end_headers()
-                with open(file_path, 'r') as file:
-                    self.wfile.write(bytes(file.read(), "utf-8"))
-            except FileNotFoundError:
-                self.send_error(404, "File Not Found")
+                self._write_file(css_file)
+                return
+
+        self.send_error(404, "File Not Found")
+
+    def _write_file(self, file_path: str):
+        with open(file_path, 'rb') as f:
+            self.wfile.write(f.read())
 if __name__ == "__main__":
     # Инициализация веб-сервера, который будет по заданным параметрах в сети
     # принимать запросы и отправлять их на обработку специальному классу, который был описан выше
